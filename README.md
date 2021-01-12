@@ -1,47 +1,43 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
-
 # CAPSTONE PROJECT - AZURE MACHINE LEARNING ENGINEER
-
-*TODO:* Write a short introduction to your project.
 
 The aim of this project is to run both an Automated ML experiment and a customised experiment with hyperparameters tuned using the HyperDrive feature.
 The best model from each experiment will be evaluated and the best overall model will be deployed as an endpoint and queried via the Python SDK.
 
 The dataset used for this project was the Heart Failure Clinical Dataset from Kaggle https://www.kaggle.com/andrewmvd/heart-failure-clinical-data. Based on the features in the dataset the aim of the experiment was to predict if the patient had a death event in the follow up period.
 
-For the customised experiment a Logistic Regression classifier was used. The best overall model was the Logistic Regression model with 90% accuracy on the test data. The Automated ML best model was only 86.6% accuarate. The Logistic Regression model was then deployed as a web service.
+For the customised experiment a Logistic Regression classifier was used. The best overall model was the Logistic Regression model with 90% accuracy on the test data. The Automated ML best model was was a Voting Ensemble at only 86.6% accuarate. The Logistic Regression model was then deployed as a web service.
 
 ## Project Set Up and Installation
-*OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
 
 The following steps were taken to set up this project:
+
 1. Create a new Azure ML workspace.
 2. Create a compute instance on which to run Jupyter Notebook. STANDARD_DS2_V2 was chosen.
 3. Create a compute cluster for training. STANDARD_DS12_V2, max 4 nodes, min 0 nodes, with low priority status was chosen.
 4. The Kaggle dataset was uploaded to the workspace as a registered dataset.
 5. The Automated ML experiment was executed using the notebook /automl.ipynb. Details:
-	5.1 Load the workspace, dataset and create a new experiment.
-	5.2 Load the compute cluster.
-	5.3 Define the Automated ML settings and configuration.
-	5.4 Submit the experiment.
-	5.5 Execute the RunDetails widget to see the output from each iteration.
-	5.6 The best model was examined.
+	* Load the workspace, dataset and create a new experiment.
+	* Load the compute cluster.
+	* Define the Automated ML settings and configuration.
+	* Submit the experiment.
+	* Execute the RunDetails widget to see the output from each iteration.
+	* The best model was examined.
 6. The HyperDrive experiment was executed using the notebook /hyperparameter_tuning.ipynb. Details:
-	6.1 Load the workspace, dataset and create a new experiment.
-	6.2 Load the compute cluster.
-	6.3 Define an early termination policy.
-	6.4 Define the parameters and the sampling type.
-	6.5 Define an environment for training.
-	6.6 Define the ScriptRunConfig and HyperDriveConfig for training.
-	6.7 Submit the experiment.
-	6.8 Execute the RunDetails widget to see the output from each iteration.
-	6.9 The best model was examined and the model file saved.
-	6.10 The best model was regsitered in the workspace.
-	6.11 Inference and deployment config were defined for the endpoint.
-	6.12 The model was deployed.
-	6.13 Application Insights was enabled on the endpoint.
-	6.14 A JSON payload was sent to the end point to test it.
-	6.15 Service logs for the endpoint were retrieved.
+	* Load the workspace, dataset and create a new experiment.
+	* Load the compute cluster.
+	* Define an early termination policy.
+	* Define the parameters and the sampling type.
+	* Define an environment for training.
+	* Define the ScriptRunConfig and HyperDriveConfig for training.
+	* Submit the experiment.
+	* Execute the RunDetails widget to see the output from each iteration.
+	* The best model was examined and the model file saved.
+	* The best model was regsitered in the workspace.
+	* Inference and deployment config were defined for the endpoint.
+	* The model was deployed.
+	* Application Insights was enabled on the endpoint.
+	* A JSON payload was sent to the end point to test it.
+	* Service logs for the endpoint were retrieved.
 7. This README.md file was created.
 8. A screencast was recorded outlining the key points of the project.
 
