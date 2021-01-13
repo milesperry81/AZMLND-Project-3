@@ -182,7 +182,8 @@ The test data was loaded to the endpoint as in the below screenshot. The resulti
 ![title](images/14_json.png)
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
+A screencast video with the below content can be found at https://youtu.be/dyGhYSQLjOM
+
 - A working model
 - Demo of the deployed  model
 - Demo of a sample request sent to the endpoint and its response
