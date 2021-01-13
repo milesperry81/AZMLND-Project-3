@@ -15,7 +15,7 @@ The following steps were taken to set up this project:
 2. Create a compute instance on which to run Jupyter Notebook. STANDARD_DS2_V2 was chosen.
 3. Create a compute cluster for training. STANDARD_DS12_V2, max 4 nodes, min 0 nodes, with low priority status was chosen.
 4. The Kaggle dataset was uploaded to the workspace as a registered dataset.
-5. The Automated ML experiment was executed using the notebook /automl.ipynb. Details:
+5. The Automated ML experiment was executed using the notebook 'automl.ipynb'. Details:
 	* Load the workspace, dataset and create a new experiment.
 	* Load the compute cluster.
 	* Define the Automated ML settings and configuration.
@@ -91,8 +91,6 @@ An overview of the Automated ML settings and configuration I used is below:
 
 ### Results
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
-
 The best model from the Automated ML experiment was a Voting Ensemble. The Voting Ensemble model was 86.6% accurate. The parameters for the winning classifier in the ensemble can be seen below:
 
 	8 - sparsenormalizer
@@ -167,13 +165,11 @@ The RunDetails widget can bee seen below. This shows the status, duration and ac
 ![title](images/9_HD_RunDetails.png)
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
-
-The best model was registered in the workspace and can be seen below:
+The HyperDrive best model was registered in the workspace and can be seen below:
 
 ![title](images/10_HD_BestModel.png)
 
-The model was deployed as per the /hyperparameter_tuning.ipynb notebook. The endpoint in the workspace can be seen below:
+The model was deployed and tested as per the 'hyperparameter_tuning.ipynb' notebook. The endpoint in the workspace can be seen below:
 
 ![title](images/13_endpoint.png)
 
@@ -184,7 +180,6 @@ A set of test data was created as in the below screenshot for loading to the end
 The test data was loaded to the endpoint as in the below screenshot. The resulting predictions for a death event based on the features provided are [1,1].
 
 ![title](images/14_json.png)
-
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
