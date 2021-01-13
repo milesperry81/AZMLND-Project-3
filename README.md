@@ -95,37 +95,37 @@ An overview of the Automated ML settings and configuration I used is below:
 
 The best model from the Automated ML experiment was a Voting Ensemble. The Voting Ensemble model was 86.6% accurate. The parameters for the winning classifier in the ensemble can be seen below:
 
-8 - sparsenormalizer
-{'copy': True, 'norm': 'l2'}
+	8 - sparsenormalizer
+	{'copy': True, 'norm': 'l2'}
 
-8 - xgboostclassifier
-{'base_score': 0.5,
- 'booster': 'gbtree',
- 'colsample_bylevel': 1,
- 'colsample_bynode': 1,
- 'colsample_bytree': 0.5,
- 'eta': 0.1,
- 'gamma': 0,
- 'learning_rate': 0.1,
- 'max_delta_step': 0,
- 'max_depth': 6,
- 'max_leaves': 15,
- 'min_child_weight': 1,
- 'missing': nan,
- 'n_estimators': 100,
- 'n_jobs': -1,
- 'nthread': None,
- 'objective': 'reg:logistic',
- 'random_state': 0,
- 'reg_alpha': 0,
- 'reg_lambda': 2.0833333333333335,
- 'scale_pos_weight': 1,
- 'seed': None,
- 'silent': None,
- 'subsample': 1,
- 'tree_method': 'auto',
- 'verbose': -10,
- 'verbosity': 0}
+	8 - xgboostclassifier
+	{'base_score': 0.5,
+	 'booster': 'gbtree',
+	 'colsample_bylevel': 1,
+	 'colsample_bynode': 1,
+	 'colsample_bytree': 0.5,
+	 'eta': 0.1,
+	 'gamma': 0,
+	 'learning_rate': 0.1,
+	 'max_delta_step': 0,
+	 'max_depth': 6,
+	 'max_leaves': 15,
+	 'min_child_weight': 1,
+	 'missing': nan,
+	 'n_estimators': 100,
+	 'n_jobs': -1,
+	 'nthread': None,
+	 'objective': 'reg:logistic',
+	 'random_state': 0,
+	 'reg_alpha': 0,
+	 'reg_lambda': 2.0833333333333335,
+	 'scale_pos_weight': 1,
+	 'seed': None,
+	 'silent': None,
+	 'subsample': 1,
+	 'tree_method': 'auto',
+	 'verbose': -10,
+	 'verbosity': 0}
 
 Ideas for improvement:
 * Run the Automated ML for more iterations to see if the accuracy improves, or try more itermediate sampling values such as 25 or 75.
@@ -139,18 +139,14 @@ The RunDetails widget can bee seen below. This shows the status, duration and ac
 ![title](images/2_RunDetails_widget.png)
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
 For the HyperDrive experiment I chose a Logistic Regression classifier. Given this was a classification problem with a 0 or 1 outcome this is suited to Logistic Regression. Also, given the small size of my data set I didn't see then need for anything too complex (e.g. DNN). As such I settled with the Logistic Regression.
 
-The model training was perfromed by the 'train.py'file. The HyperDrive feature was used to pass the dataset( --data), a range of regularization strength (--C) values and a range of epoch (--max_iter) values to the 'train.py'file. The paramaters were chosen randomly from a uniform range between 1 and 5 for --C, and from a discrete set of values [10, 50, 100] for --max_iter.
+The model training was performed by the 'train.py'file. The HyperDrive feature was used to pass the dataset( --data), a range of regularization strength values (--C) and a range of epochs (--max_iter) to the 'train.py'file. The parameters were chosen randomly from a uniform range between 1 and 5 for --C, and from a discrete set of values [10, 50, 100] for --max_iter. The 'choice' and 'uniform' parameter expressions were passed to the RandomSamplingParameter class for this purpose.
 
 The --max_iter value seemed like a good starting point for a small ML model. The values of --C were also starting point for this experiment. Smaller values of --C increase the regularization strength.
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
-
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
 The best model was 90% accuracy. The value of --C was 2.4939 and --max_iter was 100. The best model run_id and metrics can bee seen below.
 
@@ -160,7 +156,7 @@ Ideas for improvement:
 * Run the experiment for more iterations, e.g. 150, 200 and see the effect.
 * Increase the regularisation to see if this has an effect on generalisation capability.
 * The data set is very small 300+ records. I would like to get more training data.
-* Try different sizes of mini batches to see if this affects the model.
+* Try different sizes of mini-batches to see if this affects the model.
 
 The RunDetails widget can bee seen below. This shows the status, duration and accuracy of each of the experiment iterations.
 
