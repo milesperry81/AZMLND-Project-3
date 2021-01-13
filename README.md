@@ -22,7 +22,7 @@ The following steps were taken to set up this project:
 	* Submit the experiment.
 	* Execute the RunDetails widget to see the output from each iteration.
 	* The best model was examined.
-6. The HyperDrive experiment was executed using the notebook /hyperparameter_tuning.ipynb. Details:
+6. The HyperDrive experiment was executed using the notebook 'hyperparameter_tuning.ipynb'. Details:
 	* Load the workspace, dataset and create a new experiment.
 	* Load the compute cluster.
 	* Define an early termination policy.
