@@ -44,12 +44,10 @@ The following steps were taken to set up this project:
 ## Dataset
 
 ### Overview
-*TODO*: Explain about the data you are using and where you got it from.
 
 For this experiment I will be using Azure AutoML to make predictions regarding the likelihood of a death event based on a patient's features as found in the Heart Failure Prediction dataset on Kaggle. https://www.kaggle.com/andrewmvd/heart-failure-clinical-data
 
 ### Task
-*TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
 
 Features and target (DEATH_EVENT) of the Heart Failure Prediction data set are:
 
@@ -70,12 +68,10 @@ Features and target (DEATH_EVENT) of the Heart Failure Prediction data set are:
 Using the above features columns I will attempt to predict the DEATH_EVENT column i.e. the likelihood of a death event based on a patient's features.
 
 ### Access
-*TODO*: Explain how you are accessing the data in your workspace.
 
 The data was registered in the workspace as a dataset. It was then pulled into the Jupyter Notebook using the Dataset class of the Azure ML Python SDK.
 
 ## Automated ML
-*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
 
 An overview of the Automated ML settings and configuration I used is below:
 
@@ -94,194 +90,10 @@ An overview of the Automated ML settings and configuration I used is below:
 * "label_column_name": This was set to the column DEATH_EVENT in the imported dataset. It is the column we wish to predict.
 
 ### Results
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
 
-The best model from the Automated ML experiment was a Voting Ensemble. The paramters can bee seen below:
-
-datatransformer
-{'enable_dnn': None,
- 'enable_feature_sweeping': None,
- 'feature_sweeping_config': None,
- 'feature_sweeping_timeout': None,
- 'featurization_config': None,
- 'force_text_dnn': None,
- 'is_cross_validation': None,
- 'is_onnx_compatible': None,
- 'logger': None,
- 'observer': None,
- 'task': None,
- 'working_dir': None}
-
-prefittedsoftvotingclassifier
-{'estimators': ['4', '6', '5', '31', '18', '8', '21', '26', '29'],
- 'weights': [0.09090909090909091,
-             0.09090909090909091,
-             0.09090909090909091,
-             0.09090909090909091,
-             0.09090909090909091,
-             0.2727272727272727,
-             0.09090909090909091,
-             0.09090909090909091,
-             0.09090909090909091]}
-
-4 - minmaxscaler
-{'copy': True, 'feature_range': (0, 1)}
-
-4 - randomforestclassifier
-{'bootstrap': True,
- 'ccp_alpha': 0.0,
- 'class_weight': 'balanced',
- 'criterion': 'gini',
- 'max_depth': None,
- 'max_features': 'log2',
- 'max_leaf_nodes': None,
- 'max_samples': None,
- 'min_impurity_decrease': 0.0,
- 'min_impurity_split': None,
- 'min_samples_leaf': 0.01,
- 'min_samples_split': 0.01,
- 'min_weight_fraction_leaf': 0.0,
- 'n_estimators': 25,
- 'n_jobs': -1,
- 'oob_score': True,
- 'random_state': None,
- 'verbose': 0,
- 'warm_start': False}
-
-6 - standardscalerwrapper
-{'class_name': 'StandardScaler',
- 'copy': True,
- 'module_name': 'sklearn.preprocessing._data',
- 'with_mean': False,
- 'with_std': False}
-
-6 - xgboostclassifier
-{'base_score': 0.5,
- 'booster': 'gbtree',
- 'colsample_bylevel': 1,
- 'colsample_bynode': 1,
- 'colsample_bytree': 0.8,
- 'eta': 0.01,
- 'gamma': 0,
- 'grow_policy': 'lossguide',
- 'learning_rate': 0.1,
- 'max_bin': 255,
- 'max_delta_step': 0,
- 'max_depth': 6,
- 'max_leaves': 3,
- 'min_child_weight': 1,
- 'missing': nan,
- 'n_estimators': 10,
- 'n_jobs': -1,
- 'nthread': None,
- 'objective': 'reg:logistic',
- 'random_state': 0,
- 'reg_alpha': 0.3125,
- 'reg_lambda': 1.6666666666666667,
- 'scale_pos_weight': 1,
- 'seed': None,
- 'silent': None,
- 'subsample': 0.6,
- 'tree_method': 'hist',
- 'verbose': -10,
- 'verbosity': 0}
-
-5 - robustscaler
-{'copy': True,
- 'quantile_range': [25, 75],
- 'with_centering': False,
- 'with_scaling': True}
-
-5 - lightgbmclassifier
-{'boosting_type': 'goss',
- 'class_weight': None,
- 'colsample_bytree': 0.7922222222222222,
- 'importance_type': 'split',
- 'learning_rate': 0.005272631578947368,
- 'max_bin': 160,
- 'max_depth': 7,
- 'min_child_samples': 19,
- 'min_child_weight': 0,
- 'min_split_gain': 0.2631578947368421,
- 'n_estimators': 800,
- 'n_jobs': -1,
- 'num_leaves': 239,
- 'objective': None,
- 'random_state': None,
- 'reg_alpha': 0.5263157894736842,
- 'reg_lambda': 0.10526315789473684,
- 'silent': True,
- 'subsample': 1,
- 'subsample_for_bin': 200000,
- 'subsample_freq': 0,
- 'verbose': -10}
-
-31 - maxabsscaler
-{'copy': True}
-
-31 - lightgbmclassifier
-{'boosting_type': 'gbdt',
- 'class_weight': None,
- 'colsample_bytree': 0.7922222222222222,
- 'importance_type': 'split',
- 'learning_rate': 0.05263631578947369,
- 'max_bin': 90,
- 'max_depth': 7,
- 'min_child_samples': 8,
- 'min_child_weight': 5,
- 'min_split_gain': 0.10526315789473684,
- 'n_estimators': 50,
- 'n_jobs': -1,
- 'num_leaves': 176,
- 'objective': None,
- 'random_state': None,
- 'reg_alpha': 0.7368421052631579,
- 'reg_lambda': 0.47368421052631576,
- 'silent': True,
- 'subsample': 0.8415789473684211,
- 'subsample_for_bin': 200000,
- 'subsample_freq': 0,
- 'verbose': -10}
-
-18 - standardscalerwrapper
-{'class_name': 'StandardScaler',
- 'copy': True,
- 'module_name': 'sklearn.preprocessing._data',
- 'with_mean': False,
- 'with_std': False}
-
-18 - xgboostclassifier
-{'base_score': 0.5,
- 'booster': 'gbtree',
- 'colsample_bylevel': 1,
- 'colsample_bynode': 1,
- 'colsample_bytree': 0.7,
- 'eta': 0.3,
- 'gamma': 0,
- 'grow_policy': 'lossguide',
- 'learning_rate': 0.1,
- 'max_bin': 1023,
- 'max_delta_step': 0,
- 'max_depth': 2,
- 'max_leaves': 0,
- 'min_child_weight': 1,
- 'missing': nan,
- 'n_estimators': 10,
- 'n_jobs': -1,
- 'nthread': None,
- 'objective': 'reg:logistic',
- 'random_state': 0,
- 'reg_alpha': 0.9375,
- 'reg_lambda': 1.0416666666666667,
- 'scale_pos_weight': 1,
- 'seed': None,
- 'silent': None,
- 'subsample': 1,
- 'tree_method': 'hist',
- 'verbose': -10,
- 'verbosity': 0}
+The best model from the Automated ML experiment was a Voting Ensemble. The Voting Ensemble model was 86.6% accurate. The parameters for the winning classifier in the ensemble can be seen below:
 
 8 - sparsenormalizer
 {'copy': True, 'norm': 'l2'}
@@ -315,101 +127,16 @@ prefittedsoftvotingclassifier
  'verbose': -10,
  'verbosity': 0}
 
-21 - sparsenormalizer
-{'copy': True, 'norm': 'l1'}
-
-21 - xgboostclassifier
-{'base_score': 0.5,
- 'booster': 'gbtree',
- 'colsample_bylevel': 1,
- 'colsample_bynode': 1,
- 'colsample_bytree': 0.7,
- 'eta': 0.2,
- 'gamma': 0,
- 'learning_rate': 0.1,
- 'max_delta_step': 0,
- 'max_depth': 7,
- 'max_leaves': 31,
- 'min_child_weight': 1,
- 'missing': nan,
- 'n_estimators': 10,
- 'n_jobs': -1,
- 'nthread': None,
- 'objective': 'reg:logistic',
- 'random_state': 0,
- 'reg_alpha': 0,
- 'reg_lambda': 0.625,
- 'scale_pos_weight': 1,
- 'seed': None,
- 'silent': None,
- 'subsample': 1,
- 'tree_method': 'auto',
- 'verbose': -10,
- 'verbosity': 0}
-
-26 - minmaxscaler
-{'copy': True, 'feature_range': (0, 1)}
-
-26 - lightgbmclassifier
-{'boosting_type': 'goss',
- 'class_weight': None,
- 'colsample_bytree': 0.5944444444444444,
- 'importance_type': 'split',
- 'learning_rate': 0.010535263157894737,
- 'max_bin': 170,
- 'max_depth': 9,
- 'min_child_samples': 6,
- 'min_child_weight': 4,
- 'min_split_gain': 0.5263157894736842,
- 'n_estimators': 100,
- 'n_jobs': -1,
- 'num_leaves': 77,
- 'objective': None,
- 'random_state': None,
- 'reg_alpha': 0,
- 'reg_lambda': 0.05263157894736842,
- 'silent': True,
- 'subsample': 1,
- 'subsample_for_bin': 200000,
- 'subsample_freq': 0,
- 'verbose': -10}
-
-29 - maxabsscaler
-{'copy': True}
-
-29 - extratreesclassifier
-{'bootstrap': False,
- 'ccp_alpha': 0.0,
- 'class_weight': 'balanced',
- 'criterion': 'entropy',
- 'max_depth': None,
- 'max_features': 0.05,
- 'max_leaf_nodes': None,
- 'max_samples': None,
- 'min_impurity_decrease': 0.0,
- 'min_impurity_split': None,
- 'min_samples_leaf': 0.06157894736842105,
- 'min_samples_split': 0.01,
- 'min_weight_fraction_leaf': 0.0,
- 'n_estimators': 600,
- 'n_jobs': -1,
- 'oob_score': False,
- 'random_state': None,
- 'verbose': 0,
- 'warm_start': False}
-
-The Voting Ensemble model was 86.6% accurate.
-
 Ideas for improvement:
-* Run the Automated ML for more iterations.
+* Run the Automated ML for more iterations to see if the accuracy improves, or try more itermediate sampling values such as 25 or 75.
 * I would like to change the number of cross validations and see how this effects the accuracy value for the different models.
 * The data set is very small 300+ records. I would like to get more training data.
 
 The RunDetails widget can bee seen below. This shows the status, duration and accuracy of each of the experiment iterations.
 
-![title](images/1 RunDetails_widget.PNG)
+![title](images/1_RunDetails_widget.png)
 
-![title](images/2 RunDetails_widget.PNG)
+![title](images/2_RunDetails_widget.png)
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
@@ -427,7 +154,7 @@ The --max_iter value seemed like a good starting point for a small ML model. The
 
 The best model was 90% accuracy. The value of --C was 2.4939 and --max_iter was 100. The best model run_id and metrics can bee seen below.
 
-![title](images/11 HD_BestModel.PNG)
+![title](images/11_HD_BestModel.png)
 
 Ideas for improvement:
 * Run the experiment for more iterations, e.g. 150, 200 and see the effect.
@@ -437,30 +164,30 @@ Ideas for improvement:
 
 The RunDetails widget can bee seen below. This shows the status, duration and accuracy of each of the experiment iterations.
 
-![title](images/7 HD_RunDetails.PNG)
+![title](images/7_HD_RunDetails.png)
 
-![title](images/8 HD_RunDetails.PNG)
+![title](images/8_HD_RunDetails.png)
 
-![title](images/9 HD_RunDetails.PNG)
+![title](images/9_HD_RunDetails.png)
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
 The best model was registered in the workspace and can be seen below:
 
-![title](images/10 HD_BestModel.PNG)
+![title](images/10_HD_BestModel.png)
 
 The model was deployed as per the /hyperparameter_tuning.ipynb notebook. The endpoint in the workspace can be seen below:
 
-![title](images/13 endpoint.PNG)
+![title](images/13_endpoint.png)
 
 A set of test data was created as in the below screenshot for loading to the endpoint.
 
-![title](images/12 TestData.PNG)
+![title](images/12_TestData.png)
 
 The test data was loaded to the endpoint as in the below screenshot. The resulting predictions for a death event based on the features provided are [1,1].
 
-![title](images/14 json.PNG)
+![title](images/14_json.png)
 
 
 ## Screen Recording
