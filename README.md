@@ -125,6 +125,10 @@ The best model from the Automated ML experiment was a Voting Ensemble. The Votin
 	 'verbose': -10,
 	 'verbosity': 0}
 
+The best model and it's run_id can bee seen below:
+
+![title](images/3_best_model.png)
+
 Ideas for improvement:
 * Run the Automated ML for more iterations to see if the accuracy improves, or try more itermediate sampling values such as 25 or 75.
 * I would like to change the number of cross validations and see how this effects the accuracy value for the different models.
