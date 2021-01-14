@@ -192,7 +192,7 @@ The test data was loaded to the endpoint as in the below screenshot. You can see
 
 ![title](images/14_json.png)
 
-The endpoint can alos be called using the "endpoint_hd.py" file in this repository. Similar to above example in the notebook this python script passes features for two patient records to the endpoint and receives preditions on the likelyhood of a death event in return. The output from this script can be seen below.
+The endpoint can alos be called using the "endpoint_hd.py" file in this repository. Similar to above example in the notebook this python script passes features for two patient records to the endpoint and receives predictions on the likelyhood of a death event in return. The output from this script can be seen below.
 
 ![title](images/15_endpoint_hd.png)
 
