@@ -148,6 +148,10 @@ The model training was performed by the 'train.py'file. The HyperDrive feature w
 
 The --max_iter value seemed like a good starting point for a small ML model. The values of --C were also starting point for this experiment. Smaller values of --C increase the regularization strength.
 
+It should be noted that the training metrics were logged in the 'train.py' file. A screenshot is as follows:
+
+![title](images/16_train_metrics_logs.png)
+
 ### Results
 
 The best model was 90% accuracy. The value of --C was 2.4939 and --max_iter was 100. The best model run_id and metrics can bee seen below.
@@ -169,6 +173,9 @@ The RunDetails widget can bee seen below. This shows the status, duration and ac
 ![title](images/9_HD_RunDetails.png)
 
 ## Model Deployment
+
+The HyperDrive experiment was 90% accuracy. The Automated ML experiment was 86.6& accurate. We can see tha the HyperDrive experiment was 3.4% more accurate thanthe Automated ML expriment. As such the HyperDrive experiment was the best and most accurate model and was therefore registered as a model on the workspace and deployed as a webservice endpoint.
+
 The HyperDrive best model was registered in the workspace and can be seen below:
 
 ![title](images/10_HD_BestModel.png)
@@ -177,13 +184,17 @@ The model was deployed and tested as per the 'hyperparameter_tuning.ipynb' noteb
 
 ![title](images/13_endpoint.png)
 
-A set of test data was created as in the below screenshot for loading to the endpoint.
+A set of test data was created as in the below screenshot for loading to the endpoint. These 2 records in JSON format that I will load to the endpoint in the next cell.
 
 ![title](images/12_TestData.png)
 
-The test data was loaded to the endpoint as in the below screenshot. The resulting predictions for a death event based on the features provided are [1,1].
+The test data was loaded to the endpoint as in the below screenshot. You can see that the test data was formatted in JSON format as the input_payload parameter. The input_payload was then passed to the endpoint using an instance of the deployed model called "service". The resulting predictions for a death event based on the features provided are returned from the endpoint as [1,1], which can also be seen below.
 
 ![title](images/14_json.png)
+
+The endpoint can alos be called using the "endpoint_hd.py" file in this repository. Similar to above example in the notebook this python script passes features for two patient records to the endpoint and receives preditions on the likelyhood of a death event in return. The output from this script can be seen below.
+
+![title](images/15_endpoint.png)
 
 ## Screen Recording
 A screencast video with the below content can be found at https://youtu.be/dyGhYSQLjOM
