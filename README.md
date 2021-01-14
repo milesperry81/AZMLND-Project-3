@@ -174,7 +174,7 @@ The RunDetails widget can bee seen below. This shows the status, duration and ac
 
 ## Model Deployment
 
-The HyperDrive experiment was 90% accuracy. The Automated ML experiment was 86.6& accurate. We can see tha the HyperDrive experiment was 3.4% more accurate thanthe Automated ML expriment. As such the HyperDrive experiment was the best and most accurate model and was therefore registered as a model on the workspace and deployed as a webservice endpoint.
+The HyperDrive experiment was 90% accuracy. The Automated ML experiment was 86.6% accurate. We can see tha the HyperDrive experiment was 3.4% more accurate thanthe Automated ML expriment. As such the HyperDrive experiment was the best and most accurate model and was therefore registered as a model on the workspace and deployed as a webservice endpoint.
 
 The HyperDrive best model was registered in the workspace and can be seen below:
 
@@ -194,7 +194,7 @@ The test data was loaded to the endpoint as in the below screenshot. You can see
 
 The endpoint can alos be called using the "endpoint_hd.py" file in this repository. Similar to above example in the notebook this python script passes features for two patient records to the endpoint and receives preditions on the likelyhood of a death event in return. The output from this script can be seen below.
 
-![title](images/15_endpoint.png)
+![title](images/15_endpoint_hd.png)
 
 ## Screen Recording
 A screencast video with the below content can be found at https://youtu.be/dyGhYSQLjOM
