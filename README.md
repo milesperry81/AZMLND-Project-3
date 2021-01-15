@@ -197,7 +197,7 @@ The endpoint can alos be called using the "endpoint_hd.py" file in this reposito
 ![title](images/15_endpoint_hd.png)
 
 ## Screen Recording
-A screencast video with the below content can be found at https://youtu.be/dyGhYSQLjOM
+A screencast video with the below content can be found at https://www.youtube.com/watch?v=hl2D1CPopSQ
 
 - A working model
 - Demo of the deployed  model
